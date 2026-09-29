@@ -1,0 +1,61 @@
+Phase 2: arms vs `baseline`, paired by seed
+Target perplexity for steps-to-threshold: 45
+Exact two-sided sign-flip permutation test on the per-seed difference (arm - baseline).
+==============================================================================
+
+--- attn-first  (paired seeds: [0, 1, 2, 3, 4, 5]) ---
+  steps to val ppl <= 45                     baseline   2915.32   attn-first   3096.03   diff   +180.71 (  +6.2%)   p=0.03125  *   worse in 6/6 seeds   [min attainable p = 0.0312]
+  train seconds to val ppl <= 45             baseline    381.49   attn-first    405.39   diff    +23.90 (  +6.3%)   p=0.03125  *   worse in 6/6 seeds   [min attainable p = 0.0312]
+  final val perplexity                       baseline     40.54   attn-first     41.63   diff     +1.09 (  +2.7%)   p=0.03125  *   worse in 6/6 seeds   [min attainable p = 0.0312]
+  total train wall-clock (s)                 baseline    523.01   attn-first    523.35   diff     +0.34 (  +0.1%)   p=0.7188   worse in 3/6 seeds   [min attainable p = 0.0312]
+  peak VRAM (GiB)                            baseline      7.40   attn-first      7.40   diff     +0.00 (  +0.0%)   p=1   worse in 0/6 seeds   [min attainable p = 0.0312]
+
+--- attn-second  (paired seeds: [0, 1, 2, 3, 4, 5]) ---
+  steps to val ppl <= 45                     baseline   2915.32   attn-second   2773.68   diff   -141.64 (  -4.9%)   p=0.03125  *   worse in 0/6 seeds   [min attainable p = 0.0312]
+  train seconds to val ppl <= 45             baseline    381.49   attn-second    363.02   diff    -18.47 (  -4.8%)   p=0.03125  *   worse in 0/6 seeds   [min attainable p = 0.0312]
+  final val perplexity                       baseline     40.54   attn-second     40.16   diff     -0.38 (  -0.9%)   p=0.03125  *   worse in 0/6 seeds   [min attainable p = 0.0312]
+  total train wall-clock (s)                 baseline    523.01   attn-second    523.68   diff     +0.67 (  +0.1%)   p=0.5938   worse in 3/6 seeds   [min attainable p = 0.0312]
+  peak VRAM (GiB)                            baseline      7.40   attn-second      7.40   diff     +0.00 (  +0.0%)   p=1   worse in 0/6 seeds   [min attainable p = 0.0312]
+
+--- attn-first-lrm  (paired seeds: [0, 1, 2, 3, 4, 5]) ---
+  steps to val ppl <= 45                     baseline   2915.32   attn-first-lrm   2992.88   diff    +77.56 (  +2.7%)   p=0.0625   worse in 5/6 seeds   [min attainable p = 0.0312]
+  train seconds to val ppl <= 45             baseline    381.49   attn-first-lrm    389.22   diff     +7.73 (  +2.0%)   p=0.09375   worse in 5/6 seeds   [min attainable p = 0.0312]
+  final val perplexity                       baseline     40.54   attn-first-lrm     41.07   diff     +0.53 (  +1.3%)   p=0.03125  *   worse in 6/6 seeds   [min attainable p = 0.0312]
+  total train wall-clock (s)                 baseline    523.01   attn-first-lrm    520.16   diff     -2.85 (  -0.5%)   p=0.09375   worse in 1/6 seeds   [min attainable p = 0.0312]
+  peak VRAM (GiB)                            baseline      7.40   attn-first-lrm      7.40   diff     +0.00 (  +0.0%)   p=1   worse in 0/6 seeds   [min attainable p = 0.0312]
+
+--- attn-second-lrm  (paired seeds: [0, 1, 2, 3, 4, 5]) ---
+  steps to val ppl <= 45                     baseline   2915.32   attn-second-lrm   2788.25   diff   -127.07 (  -4.4%)   p=0.03125  *   worse in 0/6 seeds   [min attainable p = 0.0312]
+  train seconds to val ppl <= 45             baseline    381.49   attn-second-lrm    365.44   diff    -16.04 (  -4.2%)   p=0.03125  *   worse in 0/6 seeds   [min attainable p = 0.0312]
+  final val perplexity                       baseline     40.54   attn-second-lrm     40.21   diff     -0.33 (  -0.8%)   p=0.03125  *   worse in 0/6 seeds   [min attainable p = 0.0312]
+  total train wall-clock (s)                 baseline    523.01   attn-second-lrm    523.21   diff     +0.20 (  +0.0%)   p=0.8438   worse in 3/6 seeds   [min attainable p = 0.0312]
+  peak VRAM (GiB)                            baseline      7.40   attn-second-lrm      7.40   diff     +0.00 (  +0.0%)   p=1   worse in 0/6 seeds   [min attainable p = 0.0312]
+
+--- alternating  (paired seeds: [0, 1, 2]) ---
+  steps to val ppl <= 45                     baseline   2905.13   alternating   2914.12   diff     +8.99 (  +0.3%)   p=1   worse in 1/3 seeds   [min attainable p = 0.25]
+  train seconds to val ppl <= 45             baseline    381.33   alternating    385.28   diff     +3.95 (  +1.0%)   p=1   worse in 1/3 seeds   [min attainable p = 0.25]
+  final val perplexity                       baseline     40.45   alternating     40.65   diff     +0.21 (  +0.5%)   p=1   worse in 1/3 seeds   [min attainable p = 0.25]
+  total train wall-clock (s)                 baseline    524.97   alternating    530.31   diff     +5.34 (  +1.0%)   p=0.25   worse in 3/3 seeds   [min attainable p = 0.25]
+  peak VRAM (GiB)                            baseline      7.40   alternating      7.40   diff     +0.00 (  +0.0%)   p=1   worse in 0/3 seeds   [min attainable p = 0.25]
+
+--- attn-freeze  (paired seeds: [0, 1, 2]) ---
+  steps to val ppl <= 45                     baseline   2905.13   attn-freeze       nan   diff      +nan (  +nan%)   p=nan   worse in 0/0 seeds   [min attainable p = nan]
+  train seconds to val ppl <= 45             baseline    381.33   attn-freeze       nan   diff      +nan (  +nan%)   p=nan   worse in 0/0 seeds   [min attainable p = nan]
+  final val perplexity                       baseline     40.45   attn-freeze     53.91   diff    +13.46 ( +33.3%)   p=0.25   worse in 3/3 seeds   [min attainable p = 0.25]
+  total train wall-clock (s)                 baseline    524.97   attn-freeze    511.84   diff    -13.13 (  -2.5%)   p=0.5   worse in 1/3 seeds   [min attainable p = 0.25]
+  peak VRAM (GiB)                            baseline      7.40   attn-freeze      7.40   diff     +0.00 (  +0.0%)   p=1   worse in 0/3 seeds   [min attainable p = 0.25]
+
+--- direction test: attn-first vs attn-second (paired seeds: [0, 1, 2, 3, 4, 5]) ---
+  steps to val ppl <= 45                     attn-first   3096.03   attn-second   2773.68   diff   +322.36   p=0.03125   first worse in 6/6 seeds
+  train seconds to val ppl <= 45             attn-first    405.39   attn-second    363.02   diff    +42.37   p=0.03125   first worse in 6/6 seeds
+  final val perplexity                       attn-first     41.63   attn-second     40.16   diff     +1.47   p=0.03125   first worse in 6/6 seeds
+  total train wall-clock (s)                 attn-first    523.35   attn-second    523.68   diff     -0.33   p=0.8438   first worse in 4/6 seeds
+  peak VRAM (GiB)                            attn-first      7.40   attn-second      7.40   diff     +0.00   p=1   first worse in 0/6 seeds
+
+--- direction test: attn-first-lrm vs attn-second-lrm (paired seeds: [0, 1, 2, 3, 4, 5]) ---
+  steps to val ppl <= 45                     attn-first-lrm   2992.88   attn-second-lrm   2788.25   diff   +204.63   p=0.03125   first worse in 6/6 seeds
+  train seconds to val ppl <= 45             attn-first-lrm    389.22   attn-second-lrm    365.44   diff    +23.77   p=0.03125   first worse in 6/6 seeds
+  final val perplexity                       attn-first-lrm     41.07   attn-second-lrm     40.21   diff     +0.86   p=0.03125   first worse in 6/6 seeds
+  total train wall-clock (s)                 attn-first-lrm    520.16   attn-second-lrm    523.21   diff     -3.05   p=0.25   first worse in 3/6 seeds
+  peak VRAM (GiB)                            attn-first-lrm      7.40   attn-second-lrm      7.40   diff     +0.00   p=1   first worse in 0/6 seeds
+

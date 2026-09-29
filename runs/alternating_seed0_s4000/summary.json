@@ -1,0 +1,22 @@
+{
+  "run_id": "alternating_seed0_s4000",
+  "arm": "alternating",
+  "seed": 0,
+  "max_steps": 4000,
+  "tokens_per_step": 16384,
+  "total_tokens": 65536000,
+  "final_val_loss": 3.6988625526428223,
+  "final_val_ppl": 40.401323835788396,
+  "best_val_ppl": 40.401323835788396,
+  "train_wall_s": 526.4546719999053,
+  "eval_wall_s": 20.60546400002204,
+  "total_wall_s": 547.1566347000189,
+  "peak_vram_gb": 7.403567314147949,
+  "n_params": 70426624,
+  "init_signature": 6799.988806075241,
+  "weight_displacement_by_group": {
+    "other": 2.635340883926559,
+    "attn": 1.0492168119601657,
+    "ffn": 1.0716758547559122
+  }
+}

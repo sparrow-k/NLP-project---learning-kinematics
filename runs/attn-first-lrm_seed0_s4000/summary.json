@@ -1,0 +1,22 @@
+{
+  "run_id": "attn-first-lrm_seed0_s4000",
+  "arm": "attn-first-lrm",
+  "seed": 0,
+  "max_steps": 4000,
+  "tokens_per_step": 16384,
+  "total_tokens": 65536000,
+  "final_val_loss": 3.714218944311142,
+  "final_val_ppl": 41.02653056196827,
+  "best_val_ppl": 41.02653056196827,
+  "train_wall_s": 525.1493517002091,
+  "eval_wall_s": 20.438930899836123,
+  "total_wall_s": 545.6683314000256,
+  "peak_vram_gb": 7.403567314147949,
+  "n_params": 70426624,
+  "init_signature": 6799.988806075241,
+  "weight_displacement_by_group": {
+    "other": 2.613587328602525,
+    "attn": 1.0672161137127714,
+    "ffn": 1.014631021230443
+  }
+}

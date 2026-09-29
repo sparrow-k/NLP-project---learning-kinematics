@@ -1,0 +1,22 @@
+{
+  "run_id": "baseline_seed1_s4000",
+  "arm": "baseline",
+  "seed": 1,
+  "max_steps": 4000,
+  "tokens_per_step": 16384,
+  "total_tokens": 65536000,
+  "final_val_loss": 3.6961245437463126,
+  "final_val_ppl": 40.29085595173188,
+  "best_val_ppl": 40.29085595173188,
+  "train_wall_s": 523.3352509001852,
+  "eval_wall_s": 20.45136019977508,
+  "total_wall_s": 543.868905899988,
+  "peak_vram_gb": 7.403567314147949,
+  "n_params": 70426624,
+  "init_signature": 6850.074801985151,
+  "weight_displacement_by_group": {
+    "other": 2.538506104145294,
+    "attn": 1.0297846548937666,
+    "ffn": 1.018975157154713
+  }
+}

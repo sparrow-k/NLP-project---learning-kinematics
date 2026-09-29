@@ -1,0 +1,21 @@
+Data audit -- EleutherAI/pythia-70m
+========================================================================
+  checkpoints: 29  [np.int64(0), np.int64(1), np.int64(2), np.int64(4), np.int64(8), np.int64(16), np.int64(32), np.int64(64), np.int64(128), np.int64(256), np.int64(512), np.int64(1000), np.int64(2000), np.int64(3000), np.int64(4000), np.int64(6000), np.int64(8000), np.int64(12000), np.int64(16000), np.int64(24000), np.int64(32000), np.int64(48000), np.int64(64000), np.int64(80000), np.int64(96000), np.int64(112000), np.int64(128000), np.int64(136000), np.int64(143000)]
+  tracked matrices per checkpoint: [38]  (expected 38)
+  NaN values: 38 (expected 38: velocity at step 0)
+  cos_to_final at step 143000: min=1.00000000 max=1.00000000  (must be 1)
+  cos_to_final at step 0: min=+0.0035 median=+0.0866 max=+0.2544
+  byte-identical adjacent revisions (velocity exactly 0): [(0, 1)]
+     (expected: Pythia's step0 and step1 tags both point at the initial state -- documented in config.KNOWN_DUPLICATE_STEPS)
+  layer-0 cos at step1000 q/k/v: k=+0.12835  q=+0.11631  v=+0.15481
+  velocity range: [0.000e+00, 8.800e-01]
+  displacement rate per 1000 steps: peaks at step 128 (median 1.0365), tail median (step>=96000) = 0.0133, decay factor 78x
+  t_star defined (out of 38) per tau: {'t_star@tau=0.02': 36, 't_star@tau=0.05': 38, 't_star@tau=0.1': 38, 't_star@tau=0.2': 38, 't_star@tau=0.4': 38, 't_star@tau=0.8': 38, 't_star@tau=1.6': 38}
+  Frobenius norm range: [7.00, 581.02]
+  t90: 38/38 matrices reach p_norm=0.9; 0 of those cross only inside the final checkpoint interval (definitional -- see module docstring)
+  t99: 38/38 reach 0.99; 2 only in the final interval
+  t50: min=6047.3  median=16308.6  max=78840.7
+  t90: min=50006.3  median=77211.7  max=101160.3
+  t99: min=95765.0  median=123058.1  max=138813.2
+
+  AUDIT PASSED

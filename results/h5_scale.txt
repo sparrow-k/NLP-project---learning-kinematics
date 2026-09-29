@@ -1,0 +1,34 @@
+
+########################################################################
+# Scalar = t50   (PRIMARY)
+########################################################################
+H5  The ordering is consistent across model sizes.
+    Depth is normalized to relative depth layer/(L-1) so models with different L are comparable. The step axis needs no rescaling: every Pythia model in this suite is trained for the same 143k steps on the same data order.
+          model  L  h1_rho  h1_p  h2_r  h2_p  h2_log_ratio  h3_r  h3_p
+     pythia-70m  6   0.714 0.136 0.048 1.000         0.060 0.714 0.156
+    pythia-160m 12   0.825 0.001 0.205 0.569         0.028 0.974 0.001
+    pythia-410m 24   0.218 0.305 0.647 0.004        -0.097 0.853 0.000
+    sign agreement across models:  H1 yes   H2 yes   H3 yes
+    Spearman between models' log10(t50) profiles (6 matrix types x 11 relative-depth points):
+      pythia-70m vs pythia-160m          rho=+0.762
+      pythia-70m vs pythia-410m          rho=+0.346
+      pythia-160m vs pythia-410m         rho=+0.572
+      mean over pairs                    rho=+0.560   (weakest pair +0.346)
+    (descriptive only: the interpolated grid points are not independent, so no p-value is quoted.)
+
+########################################################################
+# Scalar = t90   (robustness check)
+########################################################################
+H5  The ordering is consistent across model sizes.
+    Depth is normalized to relative depth layer/(L-1) so models with different L are comparable. The step axis needs no rescaling: every Pythia model in this suite is trained for the same 143k steps on the same data order.
+          model  L  h1_rho  h1_p   h2_r  h2_p  h2_log_ratio   h3_r  h3_p
+     pythia-70m  6   0.771 0.103 -0.143 0.844         0.007 -0.714 0.156
+    pythia-160m 12   0.790 0.003  0.462 0.176        -0.026  0.179 0.622
+    pythia-410m 24   0.585 0.003  0.387 0.101        -0.015  0.933 0.000
+    sign agreement across models:  H1 yes   H2 NO   H3 NO
+    Spearman between models' log10(t90) profiles (6 matrix types x 11 relative-depth points):
+      pythia-70m vs pythia-160m          rho=+0.769
+      pythia-70m vs pythia-410m          rho=+0.285
+      pythia-160m vs pythia-410m         rho=+0.338
+      mean over pairs                    rho=+0.464   (weakest pair +0.285)
+    (descriptive only: the interpolated grid points are not independent, so no p-value is quoted.)

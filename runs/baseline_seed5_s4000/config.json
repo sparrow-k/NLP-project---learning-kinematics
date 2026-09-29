@@ -1,0 +1,449 @@
+{
+  "run_config": {
+    "arm": "baseline",
+    "seed": 5,
+    "n_layer": 6,
+    "d_model": 512,
+    "n_head": 8,
+    "d_ff": 2048,
+    "vocab_size": 50304,
+    "seq_len": 512,
+    "rotary_pct": 0.25,
+    "max_steps": 4000,
+    "batch_size": 16,
+    "grad_accum": 2,
+    "base_lr": 0.0006,
+    "min_lr_ratio": 0.1,
+    "warmup": 200,
+    "weight_decay": 0.1,
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "grad_clip": 1.0,
+    "emphasis_ratio": 3.0,
+    "alt_period": 200,
+    "phase1_model": "EleutherAI/pythia-70m",
+    "phase1_scalar": "t50",
+    "dataset": "wikitext-103-raw-v1",
+    "eval_every": 100,
+    "eval_batches": 24,
+    "log_every": 20,
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "compile": false,
+    "run_id": "baseline_seed5_s4000",
+    "tag": ""
+  },
+  "tokens_per_step": 16384,
+  "total_tokens": 65536000,
+  "n_params": 70426624,
+  "n_params_non_embedding": 18915328,
+  "n_train_blocks": 234145,
+  "n_val_blocks": 493,
+  "epochs_over_train": 0.5466697986290546,
+  "model_config": {
+    "transformers_version": "5.17.0",
+    "architectures": null,
+    "output_hidden_states": false,
+    "return_dict": true,
+    "dtype": null,
+    "chunk_size_feed_forward": 0,
+    "is_encoder_decoder": false,
+    "id2label": {
+      "0": "LABEL_0",
+      "1": "LABEL_1"
+    },
+    "label2id": {
+      "LABEL_0": 0,
+      "LABEL_1": 1
+    },
+    "problem_type": null,
+    "vocab_size": 50304,
+    "hidden_size": 512,
+    "num_hidden_layers": 6,
+    "num_attention_heads": 8,
+    "intermediate_size": 2048,
+    "hidden_act": "gelu",
+    "attention_dropout": 0.0,
+    "hidden_dropout": 0.0,
+    "classifier_dropout": 0.1,
+    "max_position_embeddings": 512,
+    "initializer_range": 0.02,
+    "layer_norm_eps": 1e-05,
+    "use_cache": false,
+    "bos_token_id": 0,
+    "eos_token_id": 2,
+    "pad_token_id": null,
+    "tie_word_embeddings": false,
+    "use_parallel_residual": true,
+    "rope_parameters": {
+      "rope_theta": 10000.0,
+      "partial_rotary_factor": 0.25,
+      "rope_type": "default"
+    },
+    "attention_bias": true,
+    "is_decoder": false,
+    "_name_or_path": "",
+    "model_type": "gpt_neox",
+    "output_attentions": false
+  },
+  "schedule": {
+    "arm": "baseline",
+    "max_steps": 4000,
+    "ratio": 3.0,
+    "alt_period": 200,
+    "default_sigma": 0.3,
+    "provenance": {}
+  },
+  "schedule_budget": {
+    "attn": 1.0,
+    "ffn": 1.0,
+    "sum": 2.0
+  },
+  "optimizer_groups": [
+    {
+      "sched_group": "attn",
+      "layer": 0,
+      "weight_decay": 0.0,
+      "n_params": 2048,
+      "names": [
+        "gpt_neox.layers.0.attention.query_key_value.bias",
+        "gpt_neox.layers.0.attention.dense.bias"
+      ]
+    },
+    {
+      "sched_group": "attn",
+      "layer": 0,
+      "weight_decay": 0.1,
+      "n_params": 1048576,
+      "names": [
+        "gpt_neox.layers.0.attention.query_key_value.weight",
+        "gpt_neox.layers.0.attention.dense.weight"
+      ]
+    },
+    {
+      "sched_group": "attn",
+      "layer": 1,
+      "weight_decay": 0.0,
+      "n_params": 2048,
+      "names": [
+        "gpt_neox.layers.1.attention.query_key_value.bias",
+        "gpt_neox.layers.1.attention.dense.bias"
+      ]
+    },
+    {
+      "sched_group": "attn",
+      "layer": 1,
+      "weight_decay": 0.1,
+      "n_params": 1048576,
+      "names": [
+        "gpt_neox.layers.1.attention.query_key_value.weight",
+        "gpt_neox.layers.1.attention.dense.weight"
+      ]
+    },
+    {
+      "sched_group": "attn",
+      "layer": 2,
+      "weight_decay": 0.0,
+      "n_params": 2048,
+      "names": [
+        "gpt_neox.layers.2.attention.query_key_value.bias",
+        "gpt_neox.layers.2.attention.dense.bias"
+      ]
+    },
+    {
+      "sched_group": "attn",
+      "layer": 2,
+      "weight_decay": 0.1,
+      "n_params": 1048576,
+      "names": [
+        "gpt_neox.layers.2.attention.query_key_value.weight",
+        "gpt_neox.layers.2.attention.dense.weight"
+      ]
+    },
+    {
+      "sched_group": "attn",
+      "layer": 3,
+      "weight_decay": 0.0,
+      "n_params": 2048,
+      "names": [
+        "gpt_neox.layers.3.attention.query_key_value.bias",
+        "gpt_neox.layers.3.attention.dense.bias"
+      ]
+    },
+    {
+      "sched_group": "attn",
+      "layer": 3,
+      "weight_decay": 0.1,
+      "n_params": 1048576,
+      "names": [
+        "gpt_neox.layers.3.attention.query_key_value.weight",
+        "gpt_neox.layers.3.attention.dense.weight"
+      ]
+    },
+    {
+      "sched_group": "attn",
+      "layer": 4,
+      "weight_decay": 0.0,
+      "n_params": 2048,
+      "names": [
+        "gpt_neox.layers.4.attention.query_key_value.bias",
+        "gpt_neox.layers.4.attention.dense.bias"
+      ]
+    },
+    {
+      "sched_group": "attn",
+      "layer": 4,
+      "weight_decay": 0.1,
+      "n_params": 1048576,
+      "names": [
+        "gpt_neox.layers.4.attention.query_key_value.weight",
+        "gpt_neox.layers.4.attention.dense.weight"
+      ]
+    },
+    {
+      "sched_group": "attn",
+      "layer": 5,
+      "weight_decay": 0.0,
+      "n_params": 2048,
+      "names": [
+        "gpt_neox.layers.5.attention.query_key_value.bias",
+        "gpt_neox.layers.5.attention.dense.bias"
+      ]
+    },
+    {
+      "sched_group": "attn",
+      "layer": 5,
+      "weight_decay": 0.1,
+      "n_params": 1048576,
+      "names": [
+        "gpt_neox.layers.5.attention.query_key_value.weight",
+        "gpt_neox.layers.5.attention.dense.weight"
+      ]
+    },
+    {
+      "sched_group": "ffn",
+      "layer": 0,
+      "weight_decay": 0.0,
+      "n_params": 2560,
+      "names": [
+        "gpt_neox.layers.0.mlp.dense_h_to_4h.bias",
+        "gpt_neox.layers.0.mlp.dense_4h_to_h.bias"
+      ]
+    },
+    {
+      "sched_group": "ffn",
+      "layer": 0,
+      "weight_decay": 0.1,
+      "n_params": 2097152,
+      "names": [
+        "gpt_neox.layers.0.mlp.dense_h_to_4h.weight",
+        "gpt_neox.layers.0.mlp.dense_4h_to_h.weight"
+      ]
+    },
+    {
+      "sched_group": "ffn",
+      "layer": 1,
+      "weight_decay": 0.0,
+      "n_params": 2560,
+      "names": [
+        "gpt_neox.layers.1.mlp.dense_h_to_4h.bias",
+        "gpt_neox.layers.1.mlp.dense_4h_to_h.bias"
+      ]
+    },
+    {
+      "sched_group": "ffn",
+      "layer": 1,
+      "weight_decay": 0.1,
+      "n_params": 2097152,
+      "names": [
+        "gpt_neox.layers.1.mlp.dense_h_to_4h.weight",
+        "gpt_neox.layers.1.mlp.dense_4h_to_h.weight"
+      ]
+    },
+    {
+      "sched_group": "ffn",
+      "layer": 2,
+      "weight_decay": 0.0,
+      "n_params": 2560,
+      "names": [
+        "gpt_neox.layers.2.mlp.dense_h_to_4h.bias",
+        "gpt_neox.layers.2.mlp.dense_4h_to_h.bias"
+      ]
+    },
+    {
+      "sched_group": "ffn",
+      "layer": 2,
+      "weight_decay": 0.1,
+      "n_params": 2097152,
+      "names": [
+        "gpt_neox.layers.2.mlp.dense_h_to_4h.weight",
+        "gpt_neox.layers.2.mlp.dense_4h_to_h.weight"
+      ]
+    },
+    {
+      "sched_group": "ffn",
+      "layer": 3,
+      "weight_decay": 0.0,
+      "n_params": 2560,
+      "names": [
+        "gpt_neox.layers.3.mlp.dense_h_to_4h.bias",
+        "gpt_neox.layers.3.mlp.dense_4h_to_h.bias"
+      ]
+    },
+    {
+      "sched_group": "ffn",
+      "layer": 3,
+      "weight_decay": 0.1,
+      "n_params": 2097152,
+      "names": [
+        "gpt_neox.layers.3.mlp.dense_h_to_4h.weight",
+        "gpt_neox.layers.3.mlp.dense_4h_to_h.weight"
+      ]
+    },
+    {
+      "sched_group": "ffn",
+      "layer": 4,
+      "weight_decay": 0.0,
+      "n_params": 2560,
+      "names": [
+        "gpt_neox.layers.4.mlp.dense_h_to_4h.bias",
+        "gpt_neox.layers.4.mlp.dense_4h_to_h.bias"
+      ]
+    },
+    {
+      "sched_group": "ffn",
+      "layer": 4,
+      "weight_decay": 0.1,
+      "n_params": 2097152,
+      "names": [
+        "gpt_neox.layers.4.mlp.dense_h_to_4h.weight",
+        "gpt_neox.layers.4.mlp.dense_4h_to_h.weight"
+      ]
+    },
+    {
+      "sched_group": "ffn",
+      "layer": 5,
+      "weight_decay": 0.0,
+      "n_params": 2560,
+      "names": [
+        "gpt_neox.layers.5.mlp.dense_h_to_4h.bias",
+        "gpt_neox.layers.5.mlp.dense_4h_to_h.bias"
+      ]
+    },
+    {
+      "sched_group": "ffn",
+      "layer": 5,
+      "weight_decay": 0.1,
+      "n_params": 2097152,
+      "names": [
+        "gpt_neox.layers.5.mlp.dense_h_to_4h.weight",
+        "gpt_neox.layers.5.mlp.dense_4h_to_h.weight"
+      ]
+    },
+    {
+      "sched_group": "other",
+      "layer": -1,
+      "weight_decay": 0.0,
+      "n_params": 1024,
+      "names": [
+        "gpt_neox.final_layer_norm.weight",
+        "gpt_neox.final_layer_norm.bias"
+      ]
+    },
+    {
+      "sched_group": "other",
+      "layer": -1,
+      "weight_decay": 0.1,
+      "n_params": 51511296,
+      "names": [
+        "gpt_neox.embed_in.weight",
+        "lm_head.weight"
+      ]
+    },
+    {
+      "sched_group": "other",
+      "layer": 0,
+      "weight_decay": 0.0,
+      "n_params": 2048,
+      "names": [
+        "gpt_neox.layers.0.input_layernorm.weight",
+        "gpt_neox.layers.0.input_layernorm.bias",
+        "gpt_neox.layers.0.post_attention_layernorm.weight",
+        "gpt_neox.layers.0.post_attention_layernorm.bias"
+      ]
+    },
+    {
+      "sched_group": "other",
+      "layer": 1,
+      "weight_decay": 0.0,
+      "n_params": 2048,
+      "names": [
+        "gpt_neox.layers.1.input_layernorm.weight",
+        "gpt_neox.layers.1.input_layernorm.bias",
+        "gpt_neox.layers.1.post_attention_layernorm.weight",
+        "gpt_neox.layers.1.post_attention_layernorm.bias"
+      ]
+    },
+    {
+      "sched_group": "other",
+      "layer": 2,
+      "weight_decay": 0.0,
+      "n_params": 2048,
+      "names": [
+        "gpt_neox.layers.2.input_layernorm.weight",
+        "gpt_neox.layers.2.input_layernorm.bias",
+        "gpt_neox.layers.2.post_attention_layernorm.weight",
+        "gpt_neox.layers.2.post_attention_layernorm.bias"
+      ]
+    },
+    {
+      "sched_group": "other",
+      "layer": 3,
+      "weight_decay": 0.0,
+      "n_params": 2048,
+      "names": [
+        "gpt_neox.layers.3.input_layernorm.weight",
+        "gpt_neox.layers.3.input_layernorm.bias",
+        "gpt_neox.layers.3.post_attention_layernorm.weight",
+        "gpt_neox.layers.3.post_attention_layernorm.bias"
+      ]
+    },
+    {
+      "sched_group": "other",
+      "layer": 4,
+      "weight_decay": 0.0,
+      "n_params": 2048,
+      "names": [
+        "gpt_neox.layers.4.input_layernorm.weight",
+        "gpt_neox.layers.4.input_layernorm.bias",
+        "gpt_neox.layers.4.post_attention_layernorm.weight",
+        "gpt_neox.layers.4.post_attention_layernorm.bias"
+      ]
+    },
+    {
+      "sched_group": "other",
+      "layer": 5,
+      "weight_decay": 0.0,
+      "n_params": 2048,
+      "names": [
+        "gpt_neox.layers.5.input_layernorm.weight",
+        "gpt_neox.layers.5.input_layernorm.bias",
+        "gpt_neox.layers.5.post_attention_layernorm.weight",
+        "gpt_neox.layers.5.post_attention_layernorm.bias"
+      ]
+    }
+  ],
+  "init_signature": 6574.019765125799,
+  "env": {
+    "python": "3.14.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.11.0+cu128",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 5070 Ti",
+    "cuda": "12.8",
+    "vram_total_gb": 15.92,
+    "transformers": "5.17.0"
+  }
+}

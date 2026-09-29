@@ -1,0 +1,23 @@
+{
+  "dataset": "wikitext-103-raw-v1",
+  "tokenizer": "EleutherAI/pythia-70m",
+  "eos_token_id": 0,
+  "vocab_size": 50254,
+  "splits": {
+    "train": {
+      "n_tokens": 119882322,
+      "n_lines": 1165029,
+      "path": "wikitext-103-raw-v1_train_uint16.npy"
+    },
+    "validation": {
+      "n_tokens": 252472,
+      "n_lines": 2461,
+      "path": "wikitext-103-raw-v1_validation_uint16.npy"
+    },
+    "test": {
+      "n_tokens": 288722,
+      "n_lines": 2891,
+      "path": "wikitext-103-raw-v1_test_uint16.npy"
+    }
+  }
+}

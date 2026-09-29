@@ -1,0 +1,22 @@
+{
+  "run_id": "attn-freeze_seed2_s4000",
+  "arm": "attn-freeze",
+  "seed": 2,
+  "max_steps": 4000,
+  "tokens_per_step": 16384,
+  "total_tokens": 65536000,
+  "final_val_loss": 3.995792120695114,
+  "final_val_ppl": 54.368890294467015,
+  "best_val_ppl": 54.368890294467015,
+  "train_wall_s": 528.3426110995933,
+  "eval_wall_s": 21.370470800437033,
+  "total_wall_s": 549.7945520000067,
+  "peak_vram_gb": 7.403567314147949,
+  "n_params": 70426624,
+  "init_signature": 6635.576062625224,
+  "weight_displacement_by_group": {
+    "other": 2.6452011840650806,
+    "attn": 0.5359777882431834,
+    "ffn": 0.9707892010757255
+  }
+}

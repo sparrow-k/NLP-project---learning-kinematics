@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering\small
+\begin{tabular}{lrrrrrr}
+\toprule
+\textbf{arm} & \textbf{seeds} & \textbf{final val ppl} & \textbf{steps to 45} & \textbf{sec to 45} & \textbf{train s} & \textbf{peak GiB} \\
+\midrule
+baseline & 6 & 40.54 {\scriptsize$\pm$ 0.33} & 2,915 {\scriptsize$\pm$ 48} & 381 & 523 & 7.40 \\
+attn-first & 6 & 41.63 {\scriptsize$\pm$ 0.81} & 3,096 {\scriptsize$\pm$ 165} & 405 & 523 & 7.40 \\
+attn-second & 6 & 40.16 {\scriptsize$\pm$ 0.15} & 2,774 {\scriptsize$\pm$ 23} & 363 & 524 & 7.40 \\
+attn-first-lrm & 6 & 41.07 {\scriptsize$\pm$ 0.60} & 2,993 {\scriptsize$\pm$ 103} & 389 & 520 & 7.40 \\
+attn-second-lrm & 6 & 40.21 {\scriptsize$\pm$ 0.17} & 2,788 {\scriptsize$\pm$ 22} & 365 & 523 & 7.40 \\
+alternating & 3 & 40.65 {\scriptsize$\pm$ 0.56} & 2,914 {\scriptsize$\pm$ 85} & 385 & 530 & 7.40 \\
+attn-freeze & 3 & 53.91 {\scriptsize$\pm$ 0.56} & --- & --- & 512 & 7.40 \\
+\bottomrule
+\end{tabular}
+\caption{Phase~2 results, mean $\pm$ SD over seeds. ``steps to 45'' and ``sec to 45'' are the training step and training seconds at which validation perplexity first reaches 45 (interpolated; --- if never reached). ``train s'' is total training time and ``peak GiB'' the peak GPU memory. At a given seed every arm shares the baseline's initialization and data order.}
+\label{tab:p2}
+\end{table*}

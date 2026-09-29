@@ -1,0 +1,98 @@
+
+########################################################################
+# Scalar = t50   (PRIMARY)
+########################################################################
+Phase 1 hypothesis tests -- EleutherAI/pythia-70m
+Stabilization scalar: t50
+========================================================================
+
+H1  Stabilization is bottom-up: t50 increases with layer index.
+    Unit of analysis: one layer = one observation (6 layers).
+    Spearman rho against a permutation null.
+    primary (median t50 per layer):  rho=+0.714  p=0.1361   95% CI [-0.09, +1.00]   n=6
+    per matrix type (independent depth series, Holm-corrected across 6 tests):
+      q         rho=+0.829   p_raw=0.05833   p_holm=0.2917
+      k         rho=+0.943   p_raw=0.01667   p_holm=0.1
+      v         rho=+0.600   p_raw=0.2417   p_holm=0.725
+      attn_out  rho=+0.371   p_raw=0.4972   p_holm=0.8389
+      ffn_up    rho=-0.829   p_raw=0.05833   p_holm=0.2917
+      ffn_down  rho=-0.429   p_raw=0.4194   p_holm=0.8389
+    direction: 4/6 matrix types have rho > 0.
+
+H2  Within a block, attention stabilizes before FFN.
+    Unit of analysis: one layer = one paired observation (median t50 over attn matrices vs over FFN matrices).
+    layers paired: 6    median t50: attn=17265  ffn=16841
+    Wilcoxon signed-rank: W=10.0  p=1   rank-biserial r=+0.048
+    attention earlier in 3/6 layers;  median log10(t_ffn / t_attn) = +0.060  (positive means attention is earlier)
+
+H3  Routing geometry (Q, K) stabilizes before value transport (V, attn_out).
+    Unit of analysis: one layer = one block of four paired conditions.
+    median t50 by matrix:  q=18109  k=16761  v=15219  attn_out=12372
+    Friedman across q/k/v/attn_out: chi2=5.00  p=0.1718   Kendall's W=0.278
+    planned contrast (q,k) vs (v,attn_out): W=3.0  p=0.1562   rank-biserial r=+0.714   (q,k) earlier in 1/6 layers
+    pairwise (Holm-corrected):
+      q        vs k         r=-0.048  p_holm=1
+      q        vs v         r=+0.238  p_holm=1
+      q        vs attn_out  r=+0.810  p_holm=0.4688
+      k        vs v         r=+0.143  p_holm=1
+      k        vs attn_out  r=+0.714  p_holm=0.625
+      v        vs attn_out  r=+1.000  p_holm=0.1875
+
+H4  Embeddings keep moving longest (latest stabilization of all tracked matrices).
+    Two read-outs: (a) the rank of the embedding stabilization times among all tracked matrices with an exact combinatorial p; (b) directional progress at the last checkpoint before the reference.
+    embedding t50:  embed_in=9659  embed_out=78841
+    rank among all 38 tracked matrices (1 = latest-stabilizing): [36, 1]
+    exact one-sided p (both embeddings ranking this late by chance) = 0.8962
+    cos_to_final at step 136000 (last checkpoint before the reference):
+      embeddings max=0.9993   layer matrices min=0.9904  median=0.9952
+      verdict: not strictly below every layer matrix
+
+
+########################################################################
+# Scalar = t90   (robustness check)
+########################################################################
+Phase 1 hypothesis tests -- EleutherAI/pythia-70m
+Stabilization scalar: t90
+========================================================================
+
+H1  Stabilization is bottom-up: t90 increases with layer index.
+    Unit of analysis: one layer = one observation (6 layers).
+    Spearman rho against a permutation null.
+    primary (median t90 per layer):  rho=+0.771  p=0.1028   95% CI [-0.09, +1.00]   n=6
+    per matrix type (independent depth series, Holm-corrected across 6 tests):
+      q         rho=+0.886   p_raw=0.03333   p_holm=0.1667
+      k         rho=+0.943   p_raw=0.01667   p_holm=0.1
+      v         rho=+0.829   p_raw=0.05833   p_holm=0.2333
+      attn_out  rho=+0.829   p_raw=0.05833   p_holm=0.2333
+      ffn_up    rho=+0.714   p_raw=0.1361   p_holm=0.2722
+      ffn_down  rho=+0.543   p_raw=0.2972   p_holm=0.2972
+    direction: 6/6 matrix types have rho > 0.
+
+H2  Within a block, attention stabilizes before FFN.
+    Unit of analysis: one layer = one paired observation (median t90 over attn matrices vs over FFN matrices).
+    layers paired: 6    median t90: attn=78985  ffn=78342
+    Wilcoxon signed-rank: W=9.0  p=0.8438   rank-biserial r=-0.143
+    attention earlier in 3/6 layers;  median log10(t_ffn / t_attn) = +0.007  (positive means attention is earlier)
+
+H3  Routing geometry (Q, K) stabilizes before value transport (V, attn_out).
+    Unit of analysis: one layer = one block of four paired conditions.
+    median t90 by matrix:  q=74570  k=79017  v=78360  attn_out=76183
+    Friedman across q/k/v/attn_out: chi2=6.60  p=0.0858   Kendall's W=0.367
+    planned contrast (q,k) vs (v,attn_out): W=3.0  p=0.1562   rank-biserial r=-0.714   (q,k) earlier in 5/6 layers
+    pairwise (Holm-corrected):
+      q        vs k         r=-1.000  p_holm=0.1875
+      q        vs v         r=-0.905  p_holm=0.3125
+      q        vs attn_out  r=-0.714  p_holm=0.625
+      k        vs v         r=-0.429  p_holm=1
+      k        vs attn_out  r=-0.429  p_holm=1
+      v        vs attn_out  r=+0.333  p_holm=1
+
+H4  Embeddings keep moving longest (latest stabilization of all tracked matrices).
+    Two read-outs: (a) the rank of the embedding stabilization times among all tracked matrices with an exact combinatorial p; (b) directional progress at the last checkpoint before the reference.
+    embedding t90:  embed_in=86248  embed_out=101160
+    rank among all 38 tracked matrices (1 = latest-stabilizing): [7, 1]
+    exact one-sided p (both embeddings ranking this late by chance) = 0.02987  *
+    cos_to_final at step 136000 (last checkpoint before the reference):
+      embeddings max=0.9993   layer matrices min=0.9904  median=0.9952
+      verdict: not strictly below every layer matrix
+
